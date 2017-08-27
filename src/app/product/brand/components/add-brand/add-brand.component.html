@@ -1,0 +1,44 @@
+<div class="row animated fadeIn">
+  <div class="col-md-12 ">
+    <div class="card">
+      <div class="card-header">
+        <strong>Add Brand</strong>
+      </div>
+      <form [formGroup]="addBrandForm" (ngSubmit)="addBrand(addBrandForm.value)">
+        <div class="card-body">
+          <div class="col-md-4">
+            <div class="form-group ">
+              <label class="form-form-control-label" for="brandName">Brand Name</label>
+              <input type="text" 
+                     class="form-control"
+                     formControlName="brandName" 
+                     id="brandName"
+                     [ngClass]="{'is-invalid': brandName.invalid && (brandName.dirty || brandName.touched) }"
+                     placeholder="Enter brand name" />
+                     <small class="text-danger" *ngIf="brandName.hasError('required') &&  brandName.touched" >You must enter brand name.</small>
+                     <small class="text-danger" *ngIf="brandName.hasError('minlength') &&  brandName.touched" >Brand name must be at least 3 characters long.</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group ">
+              <label class="form-form-control-label" for="subBrand">Sub Branding Name(Optional)</label>
+              <input type="text" 
+                     class="form-control"
+                     formControlName="subBrand" 
+                     id="subBrand"
+                     [ngClass]="{'is-invalid': subBrand.invalid && (subBrand.dirty || subBrand.touched) }"
+                     placeholder="Enter brand name" />
+                     <small class="text-danger" *ngIf="subBrand.hasError('minlength') &&  subBrand.touched" >Sub brand name must be at least 3 characters long.</small>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" [disabled]="addBrandForm.invalid" class="btn btn-sm btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
