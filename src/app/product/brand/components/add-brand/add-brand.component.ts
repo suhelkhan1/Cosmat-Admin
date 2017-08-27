@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { BrandService } from '../../../../shared/services/brand/brand.service';
 
 @Component({
   selector: 'app-add-brand',
@@ -12,7 +13,9 @@ export class AddBrandComponent implements OnInit {
   brandName: FormControl
   subBrand: FormControl
 
-  constructor() { }
+  constructor(
+    private brandService: BrandService
+  ) { }
 
   ngOnInit() {
     this.addBrandFormValidation()
@@ -35,6 +38,12 @@ export class AddBrandComponent implements OnInit {
 
   addBrand(formValues){
     console.log(formValues)
+    let data = {
+      name: formValues.brandName
+    }
+    this.brandService.add(data).subscribe(
+      response => response
+    )
   }
 
 }

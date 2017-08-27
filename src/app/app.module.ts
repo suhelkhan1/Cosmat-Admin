@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { HttpModule } from '@angular/http'
 
 /**+*+*+*+*+**+*+*+*+*+**+* App Modules +*+*+*+**+*+*+*+*+**+*+*+*+*+**/
 import { SharedModule } from './shared/shared.module'
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app.routes';
     AppRoutingModule,
     SharedModule,
     LayoutsModule,
-    ProductModule
+    ProductModule, 
+    HttpModule
   ],
   declarations: [
     AppComponent,

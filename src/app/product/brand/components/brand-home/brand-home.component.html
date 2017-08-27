@@ -1,0 +1,51 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> All Brands
+        </div>
+        <div class="card-body">
+          <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>
+
+          <ngx-datatable #mydatatable class="material ngx-datatable fixed-header" [headerHeight]="50" [limit]="5" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+
+            <ngx-datatable-column name="Name">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
+                  {{value}}
+                </span>
+                <input autofocus (blur)="updateValue($event, 'name', value, row)" *ngIf="editing[rowIndex+ '-name']" type="text" [value]="value"/>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Gender">
+              <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-gender'] = true" *ngIf="!editing[rowIndex + '-gender']">
+                  {{value}}
+                </span>
+                <select *ngIf="editing[rowIndex + '-gender']" (change)="updateValue($event, 'gender', rowIndex)" [value]="value">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Age">
+              <ng-template ngx-datatable-cell-template let-value="value">
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            
+          </ngx-datatable>
+        </div>
+        <div class="card-footer">
+          <button type="button" [routerLink]="['/product/brand/brand-add']" class="btn btn-sm btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Add New Brand
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+</div>

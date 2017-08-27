@@ -5,16 +5,11 @@
         <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
       </li>
       <li class="divider"></li>
-      <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
+      <li class="nav-item nav-dropdown" appNavDropdown>
         <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-star"></i> Products</a>
         <ul class="nav-dropdown-items">
-          <li class="nav-item nav-dropdown" routerLinkActive="open" appNavDropdown>
-            <a class="nav-link nav-dropdown-toggle" href="#" appNavDropdownToggle><i class="icon-star"></i> Brand</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" routerLinkActive="active" [routerLink]="['/product/brand/add-brand']"><i class="icon-star"></i> Add Brand</a>
-              </li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/product/brand/brand-home']"><i class="icon-star"></i> Brand</a>
           </li>
         </ul>
       </li>
